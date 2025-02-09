@@ -5,6 +5,7 @@ const AddProductModal = ({ isOpen, onClose, product }) => {
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
   const [categoryId, setCategoryId] = useState("");
+  const [productImageURL, setProductImageURL] = useState("");
 
   const [addProduct, { isLoading: isAdding, isError, error }] = useAddProductMutation();
   const [updateProduct, { isLoading: isUpdating}] = useUpdateProductMutation();
@@ -24,6 +25,7 @@ const AddProductModal = ({ isOpen, onClose, product }) => {
             setProductName(product.productName);
             setProductPrice(product.productPrice);
             setCategoryId(product.categoryId);
+            setProductImageURL(product.productImageURL); 
         } else {
             setProductName("");
             setProductPrice("");
@@ -37,10 +39,10 @@ const AddProductModal = ({ isOpen, onClose, product }) => {
     
     try {
         if(product) {
-            await updateProduct({ id: product.id, productName, productPrice: Number(productPrice), categoryId: Number(categoryId) }).unwrap();
+            await updateProduct({ id: product.id, productName, productPrice: Number(productPrice), categoryId: Number(categoryId), productImageURL }).unwrap();
             alert("Product updated successfully!");
         } else {
-            await addProduct({ productName, productPrice: Number(productPrice), categoryId: Number(categoryId) }).unwrap();
+            await addProduct({ productName, productPrice: Number(productPrice), categoryId: Number(categoryId), productImageURL }).unwrap();
             alert("Product added successfully!");
         }
         onClose(); // Close modal on success
@@ -64,6 +66,14 @@ const AddProductModal = ({ isOpen, onClose, product }) => {
             placeholder="Product Name"
             value={productName}
             onChange={(e) => setProductName(e.target.value)}
+            className="w-full border p-2 rounded mb-2 outline-none"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Product Image URL"
+            value={productImageURL}
+            onChange={(e) => setProductImageURL(e.target.value)}
             className="w-full border p-2 rounded mb-2 outline-none"
             required
           />

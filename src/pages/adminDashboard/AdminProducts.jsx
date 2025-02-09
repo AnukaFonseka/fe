@@ -89,18 +89,16 @@ const AdminProducts = () => {
               <th className="border px-4 py-2">ID</th>
               <th className="border px-4 py-2">Product Name</th>
               <th className="border px-4 py-2">Price ($)</th>
-              <th className="border px-4 py-2">Quantity</th>
               <th className="border px-4 py-2">Category</th>
               <th className="border px-4 py-2">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {filteredRows?.map((product) => (
-              <tr key={product.id} className="text-center">
-                <td className="border px-4 py-2">{product.id}</td>
+            {filteredRows?.map((product,index) => (
+              <tr key={index} className="text-center">
+                <td className="border px-4 py-2">{index + 1}</td>
                 <td className="border px-4 py-2">{product.productName}</td>
                 <td className="border px-4 py-2">{product.productPrice}</td>
-                <td className="border px-4 py-2">{product.productQuantity}</td>
                 <td className="border px-4 py-2">{product.productCategory}</td>
                 <td className="border px-4 py-2 flex justify-center gap-2">
                   <button 

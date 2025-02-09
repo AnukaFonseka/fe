@@ -86,7 +86,7 @@ const Orders = () => {
                 <td className="border px-4 py-2">{new Date(order.createdAt).toLocaleString().split(",")[0]}</td>
                 <td className="border px-4 py-2">
                   <button 
-                    className="bg-red-600 text-white px-2 py-1 rounded-md"
+                    className="bg-red-600 text-white px-2 py-1 rounded"
                     onClick={() => handleDelete(order.id)}
                   >
                       Delete

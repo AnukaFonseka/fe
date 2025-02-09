@@ -5,7 +5,7 @@ const ProtectedRoute = ({ allowedRoles }) => {
   const token = localStorage.getItem("accessToken"); // Retrieve JWT token from local storage
 
   if (!token) {
-    return <Navigate to="/login" replace />; // Redirect to login if no token
+    return <Navigate to="/" replace />; // Redirect to login if no token
   }
 
   try {
