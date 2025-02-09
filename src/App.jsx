@@ -7,6 +7,8 @@ import Products from './pages/Products'
 import AdminHome from './pages/adminDashboard/AdminHome'
 import AdminProducts from './pages/adminDashboard/AdminProducts'
 import ProtectedRoute from "./components/routes/ProtectedRoute";
+import Users from './pages/adminDashboard/Users'
+import Orders from './pages/adminDashboard/Orders'
 
 function App() {
 
@@ -21,11 +23,13 @@ function App() {
       <Route element={<ProtectedRoute allowedRoles={["ADMIN"]} />}>
         <Route path="/admin" element={<AdminHome />}>
           <Route index element={<AdminProducts />} />
+          <Route path="users" element={<Users />} />
+          <Route path="orders" element={<Orders />} />
         </Route>
       </Route>
 
       {/* Redirect unknown routes to home */}
-      <Route path="*" element={<Navigate to="/home" />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   )
 }

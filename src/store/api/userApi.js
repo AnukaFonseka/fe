@@ -11,10 +11,12 @@ export const userApi = api.injectEndpoints({
           body: data,
         };
       },
+      invalidatesTags: ["User"],
     }),
 
     getAllUsers: builder.query({
-      query: () => "users",
+      query: () => "user/getAllUsers",
+      providesTags: ["User"],
     }),
 
     updateUser: builder.mutation({
@@ -25,15 +27,17 @@ export const userApi = api.injectEndpoints({
           body: data,
         };
       },
+      invalidatesTags: ["User"],
     }),
 
     deleteUser: builder.mutation({
       query: (userId) => {
         return {
-          url: `users/${userId}`,
+          url: `user/deleteUser/${userId}`,
           method: "DELETE",
         };
       },
+      invalidatesTags: ["User"],
     }),
 
 

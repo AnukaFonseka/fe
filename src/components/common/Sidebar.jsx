@@ -27,7 +27,7 @@ export const Sidebar = () => {
   // Handle logout functionality
   const handleLogout = () => {
     localStorage.removeItem("accessToken"); 
-    navigate("/login"); 
+    navigate("/"); 
   };
 
   useEffect(() => {
@@ -111,10 +111,10 @@ export const Sidebar = () => {
         <CNavItem href="/admin">
           <DashboardIcon className="nav-icon !text-slate-500" /> Products
         </CNavItem>
-        <CNavItem href="/home/add-promotion">
+        <CNavItem href="/admin/orders">
           <ShoppingBagIcon className="nav-icon !text-slate-500" /> Orders
         </CNavItem>
-        <CNavItem href="/home/users">
+        <CNavItem href="/admin/users">
           <GroupIcon className="nav-icon !text-slate-500" /> Users
         </CNavItem>
       </CSidebarNav>
